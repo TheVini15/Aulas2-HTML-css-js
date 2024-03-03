@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>verificador de idade</title>
+  <link rel="stylesheet" href="identificador.css">
+</head>
+<body>
+  <header>
+    <h1>verificador de idade</h1>
+  </header>
+ <section>
+   <div id="msg">
+     <p>ano de nascimento:
+       <input type="number" name="n1" id="n1" min="0">
+     </p>
+     <p>sexo:
+       <input type="radio" name="radsex" id="masc" checked>
+       <label for="masc">Masculino</label>
+       <input type="radio" name="radsex" id="fem">
+       <label for="fem">feminino</label>
+     </p>
+   </div>
+   <div id="res">
+     <input type="button" value="verificar" onclick="verificar()" id="resul">
+   </div>
+ </section>
+ <footer>
+   <p>&copy;TheVini15</p>
+ </footer>
+ <script>
+ function verificar(){
+  var data = new Date()
+  var ano = data.getFullYear()
+  var fano = document.querySelector("input#n1")
+  var res = document.querySelector("div#res")
+  var img = document.createElement("img")
+  img.setAttribute('id','foto')
+  if (fano.value.length == 0 || fano.value > ano){
+    window.alert("[ERRO]verique os dados novamente")
+  } else{
+    var fsex = document.getElementsByName("radsex")
+    var idade = ano - Number(fano.value)
+    res.innerHTML = `idade calculada: ${idade}`
+    if (fsex[0].checked){
+      gênero = "homem"
+      if (idade >=0 && idade <10){
+        img.setAttribute('src','imagens/criança m.jpeg')
+      }else if (idade > 10 && idade <21){
+        img.setAttribute('src','imagens/adolescente m.jpeg')
+      }else if (idade <= 50){
+       img.setAttribute('src','imagens/adulto m.jpeg')
+      }
+      else{
+       img.setAttribute('src','imagens/idoso m.jpeg')
+      }
+    } else if (fsex[1].checked){
+      gênero = "mulher"
+            if (idade >=0 && idade <10){
+        img.setAttribute('src','imagens/criança f.jpeg')
+      }else if (idade > 10 && idade <21){
+        img.setAttribute('src','imagens/adolescente f.jpeg')
+      }else if (idade < 50){
+       img.setAttribute('src','imagens/adolescente f.jpeg')
+      }
+      else{
+        img.setAttribute('src','imagens/idoso f.jpeg')
+      }
+    }
+    res.style.textAlign = "center"
+    res.innerHTML = `detectamos ${gênero} com ${idade} anos.`
+    res.appendChild(img)
+  }
+}
+</script>
+</body>
+</html>
