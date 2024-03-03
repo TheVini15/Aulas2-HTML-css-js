@@ -1,0 +1,33 @@
+body {
+  background: #e1ddddd8;
+  font: normal 15pt Arial;
+}
+header{
+  color: white;
+}
+section{
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  height: 190px;
+  margin: auto;
+  box-shadow: 3px 3px 10px #0000007e;
+}
+footer{
+  color: white;
+  text-align: center;
+  font-style: italic;
+}
+input#confirmar{
+  text-align: right;
+}
+p1#nome1{
+  font: normal 13pt Arial;
+}
+p1#senha1{
+  font: normal 13pt Arial;
+}
+div#res{
+  font: 15pt;
+}

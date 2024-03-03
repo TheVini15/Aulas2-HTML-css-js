@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>exercício</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body id="color">
+  <header>
+    <h1>Login</h1>
+  </header>
+ <section>
+   <div id="msg">
+    <p1>Nome de usuário:<input type="text" id="nome" onmouseenter='entrar()' onmouseout="sair()"></p1><br>
+    <p1 id="nome1">Digite o nome de usuário</p1><br>
+    <p1>Senha:<br><input type="text" id="senha"onmouseenter='entrar1()' onmouseout="sair1()"></p1><br>
+   <p1 id="senha1">digite a senha</p1>
+   </div>
+   <div>
+    <p1><input type="button" id="confirmar" value="confirmar" onclick="confirmar()"><br></p1>
+   </div>
+   <div id="res">Login...</div>
+    </section>
+ <footer>
+   <p>&copy;TheVini15</p>
+ </footer>
+ <script>
+ function confirmar(){
+  var nome = document.querySelector("input#nome")
+  var senha = document.querySelector("input#senha")
+  var nome1 = document.querySelector("p1#nome1")
+  var senha1 = document.querySelector("p1#senha1")
+  var confi = document.querySelector("div#res")
+  var confi1 = confi.length
+  var senhac = 'vinicius15!!'
+  var nomec = 'Thevini15'
+  if (nome.value === '' && senha.value === ''){
+  nome1.style.color = 'red'
+  senha1.style.color = 'red'
+  }else if (nome.value === ''){
+  nome1.style.color = 'red' 
+  }else if (senha.value === ''){
+  senha1.style.color = 'red'
+  }
+  function entrar(){
+    nome.style.color = 'blue'
+  }
+  function sair(){
+    nome.style.color = 'white'
+  }
+  function entrar1(){
+    senha.style.color = 'blue'
+  }
+  function sair1(){
+    senha.style.color = 'white'
+  }</script>
+</body>
+</html>
