@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+     background: #0714d2c4;
+     color:white;
+     font: normal 18pt Arial;
+    }
+  </style>
+</head>
+<body>
+  <h1>estudos DOM</h1>
+  <p1>aqui vai o resultado</p1>
+  <p1>aprendendo a usar <strong>DOM</strong> em javascript</p1>
+  <div id='msg'>mmmm em mim</div>
+  <script>
+    //DOM=Document Object Mode//
+    //árvore DOM->>window->>location/document\history:document->>>HTML->>>head/body//
+    //window.document.write(window.document.URL)//
+    var corpo = window.document.body
+    var p1 = window.document.getElementsByTagName('p1')[1]//selecionar elementos,sempre colocar parágrafo quando for mais de um//
+    var d = window.document.querySelector('div#msg')//id=hashtag class=.
+    d.style.color = 'black'
+   /*var d = document.getElementsByClassName('msg')[0]
+   d.innerText = 'ola'
+   /*var d = document.getElementById('msg')
+    d.style.background = 'black'
+    d.innerText = 'estou esperando'
+    document.write(p1.innerHTML)//innerHTML vem formatado//*/
+    /*corpo.style.background = 'black'
+    p1.style.color = 'blue'//mudar o parágrafo pra azul
+      //window.document.write(p1.innerText)//*/
+  </script>
+</body>
+</html>
