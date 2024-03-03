@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>analisador de números</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body id="color" onload="carregar()">
+  <header>
+    <h1>Contar</h1>
+  </header>
+ <section id="sec">
+   <div id="msg">
+     Número (1 a 100):
+ <input type="number"name="fnum"id="fnum">
+ <input type="button"id="n2"value="adicionar" onclick="adicionar()">
+ <br><select name="flista" id="flista" size="6"></select>
+ <br><input type="button" value="finalizar" onclick="finalizar()">
+   </div>
+   <div id="res">
+     teste...
+   </div>
+ </section>
+ <footer>
+   <p>&copy;TheVini15</p>
+ </footer>
+ <script>
+let num = document.querySelector("input#fnum")
+let lista = document.querySelector("select#flista")
+let res = document.querySelector("div#res")
+let sec = document.querySelector("section#sec")
+let valores = []
+function isnumero(n){
+  if (Number(n) >= 1 && Number(n) <=100){
+    return true
+  }else{
+    return false
+  }
+}
+function islista(n, l){
+  if (l.indexOf(Number(n)) != -1){
+    return true
+  }else{
+    return false
+  }
+}
+function adicionar(){
+  if  (isnumero(num.value) && !islista(num.value, valores)){
+    valores.push(Number(num.value))
+    let item = document.createElement('option')
+    item.text = `valor ${num.value} adicionado`
+    lista.appendChild(item)
+    res.innerHTML = ''
+  }else{
+    window.alert('valor inválido ou já encontrado na lista')
+  }
+  num.value = ''
+  num.focus()
+}
+function finalizar(){
+  if (valores.length == 0){
+    window.alert("adicione valores antes de finalizar")
+  }else{
+    var tot = valores.length
+    var maior = valores[0]
+    var menor = valores[0]
+    var soma = 0
+    var média = 0
+    for(let pos in valores){
+      soma += valores[pos]
+      if (valores[pos] > maior)
+        maior = valores[pos]
+      if (valores[pos] < menor)
+        menor = valores[pos]
+    }
+    média = soma/tot
+    res.innerHTML = ''
+    sec.style.height = "450px"
+    res.style.display = 'block'
+    res.innerHTML += `<p>ao todo, temos ${tot} Números cadastrados<\p>`
+    res.innerHTML += `<p>maior valor informado foi ${maior}<\p>`
+    res.innerHTML += `<p>menor valor informado foi ${menor}<\p>`
+    res.innerHTML += `<p>somando todos os valores, temos ${soma}<\p>`
+    res.innerHTML += `<p>a média dos valores informado é igual a ${média}`
+  }
+}</script>
+</body>
+</html>
